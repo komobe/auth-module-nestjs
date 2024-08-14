@@ -1,6 +1,6 @@
+import {BcryptPasswordValidator} from "@adapters/bcrypt-password-validator";
+import {PasswordValidator} from "@contracts/password-validator";
 import * as bcrypt from 'bcrypt';
-import {PasswordValidator} from "@komobe/flexica/contracts/password-validator";
-import {BcryptPasswordValidator} from "@komobe/flexica/adapters/bcrypt-password-validator";
 
 describe('validatePassword', () => {
     const plainPassword = 'mySecurePassword';

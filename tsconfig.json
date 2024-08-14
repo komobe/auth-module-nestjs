@@ -11,12 +11,8 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@komobe/flexica": [
-        "libs/flexica/src"
-      ],
-      "@komobe/flexica/*": [
-        "libs/flexica/src/*"
-      ]
+      "@contracts/*": ["libs/flexica/src/contracts/*"],
+      "@adapters/*": ["libs/flexica/src/adapters/*"],
     }
   }
 }

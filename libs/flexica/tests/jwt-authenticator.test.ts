@@ -1,8 +1,9 @@
+import { JwtAuthenticator } from "@adapters/jwt-authenticator.adapter";
+import { Authenticator } from "@contracts/authenticator.interface";
+import { AuthentificationError } from "@contracts/errors/authentification.error";
 import * as jwt from 'jsonwebtoken';
-import {JwtPayload, verify} from 'jsonwebtoken';
-import {JwtAuthenticator} from "@komobe/flexica/adapters/jwt-authenticator.adapter";
-import {Authenticator} from "@komobe/flexica/contracts/authenticator.interface";
-import {AuthentificationError} from "@komobe/flexica/contracts/errors/authentification.error";
+import { JwtPayload, verify } from 'jsonwebtoken';
+
 
 describe('JwtAuthenticator', () => {
     const jwtSecret = 'w2Y/t6RnKDc9NfN+yVzHqjE56KcXwKHS3HdKSt+Hf0I=';
@@ -25,7 +26,7 @@ describe('JwtAuthenticator', () => {
         expect(decodedWithoutExpiration).toHaveProperty('iat'); // Vérifie que le champ `iat` est présent
 
         // Test pour un token avec une durée d'expiration
-        const tokenWithExpiration = await (authenticator.generateToken as Function)(payload, { expiresIn: '1h' });
+        const tokenWithExpiration = await (authenticator.generateToken as Function)(payload, {expiresIn: '1h'});
         expect(typeof tokenWithExpiration).toBe('string');
 
         const decodedWithExpiration = verify(tokenWithExpiration, jwtSecret) as JwtPayload & typeof payload;
@@ -36,7 +37,7 @@ describe('JwtAuthenticator', () => {
     });
 
     it('should throw an error when generating a token with a non-object payload', () => {
-        expect(async () =>await (authenticator.generateToken as Function)('invalid_payload'))
+        expect(async () => await (authenticator.generateToken as Function)('invalid_payload'))
             .rejects.toThrow('Payload must be an object to generate a JWT token.');
     });
 

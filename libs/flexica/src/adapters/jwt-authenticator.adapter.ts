@@ -1,7 +1,6 @@
+import { Authenticator } from '@contracts/authenticator.interface';
+import { AuthentificationError } from '@contracts/errors/authentification.error';
 import * as jwt from 'jsonwebtoken';
-import { UnauthorizedException } from "@nestjs/common";
-import { Authenticator } from "@komobe/flexica/contracts/authenticator.interface";
-import {AuthentificationError} from "@komobe/flexica/contracts/errors/authentification.error";
 
 /**
  * JWT-based authenticator that verifies JWT tokens and returns the decoded payload.
@@ -14,7 +13,8 @@ export class JwtAuthenticator<T = any> implements Authenticator<T> {
      *
      * @param jwtSecret - The secret key used to verify the JWT token.
      */
-    constructor(private readonly jwtSecret: string) {}
+    constructor(private readonly jwtSecret: string) {
+    }
 
     /**
      * Authenticates a JWT token and returns the decoded payload.
