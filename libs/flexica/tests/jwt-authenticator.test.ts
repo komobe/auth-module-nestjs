@@ -1,8 +1,8 @@
 import * as jwt from 'jsonwebtoken';
 import {JwtPayload, verify} from 'jsonwebtoken';
 import {JwtAuthenticator} from "@komobe/flexica/adapters/jwt-authenticator.adapter";
-import {Authenticator} from "@komobe/flexica/core/authenticator.interface";
-import {AuthentificationError} from "@komobe/flexica/core/errors/authentification.error";
+import {Authenticator} from "@komobe/flexica/contracts/authenticator.interface";
+import {AuthentificationError} from "@komobe/flexica/contracts/errors/authentification.error";
 
 describe('JwtAuthenticator', () => {
     const jwtSecret = 'w2Y/t6RnKDc9NfN+yVzHqjE56KcXwKHS3HdKSt+Hf0I=';

@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import { UnauthorizedException } from "@nestjs/common";
-import { Authenticator } from "@komobe/flexica/core/authenticator.interface";
-import {AuthentificationError} from "@komobe/flexica/core/errors/authentification.error";
+import { Authenticator } from "@komobe/flexica/contracts/authenticator.interface";
+import {AuthentificationError} from "@komobe/flexica/contracts/errors/authentification.error";
 
 /**
  * JWT-based authenticator that verifies JWT tokens and returns the decoded payload.

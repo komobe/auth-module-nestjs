@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import {PasswordValidator} from "@komobe/flexica/core/password-validator";
+import {PasswordValidator} from "@komobe/flexica/contracts/password-validator";
 import {BcryptPasswordValidator} from "@komobe/flexica/adapters/bcrypt-password-validator";
 
 describe('validatePassword', () => {
