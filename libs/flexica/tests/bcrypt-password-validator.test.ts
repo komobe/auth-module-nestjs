@@ -1,10 +1,10 @@
 import {BcryptPasswordValidator} from "@adapters/bcrypt-password-validator";
-import {PasswordValidator} from "@contracts/password-validator";
+import {PasswordValidatorInterface} from "@contracts/password-validator.interface";
 import * as bcrypt from 'bcrypt';
 
 describe('validatePassword', () => {
     const plainPassword = 'mySecurePassword';
-    let passwordValidator: PasswordValidator;
+    let passwordValidator: PasswordValidatorInterface;
     let hashedPassword: string;
 
     beforeAll(async () => {
