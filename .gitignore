@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+dist/
+build/
+temp/
+*.log
+yarn-error.log
+.yarn-integrity
+.env
+
+# TypeScript
+*.tsbuildinfo
+out/
+coverage/
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+

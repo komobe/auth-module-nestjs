@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@komobe/flexica": [
+        "libs/flexica/src"
+      ],
+      "@komobe/flexica/*": [
+        "libs/flexica/src/*"
+      ]
+    }
+  }
+}

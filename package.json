@@ -1,0 +1,31 @@
+{
+  "name": "flexica",
+  "version": "0.0.1",
+  "description": "A flexible and adaptable authentication library.",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/komobe/auth-module-nestjs"
+  },
+  "author": "Moro KONE <komobe.dev@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "jest": "^26.0.0",
+    "@nestjs/testing": "^9.0.0",
+    "@types/jest": "^26.0.0",
+    "ts-jest": "^26.0.0"
+  }
+}

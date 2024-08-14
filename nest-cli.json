@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "flexica": {
+      "type": "library",
+      "root": "libs/flexica",
+      "entryFile": "index",
+      "sourceRoot": "libs/flexica/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/flexica/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
