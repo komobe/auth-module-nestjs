@@ -13,6 +13,7 @@
     "paths": {
       "@contracts/*": ["libs/flexica/src/contracts/*"],
       "@adapters/*": ["libs/flexica/src/adapters/*"],
+      "libs/flexica/src/*": ["libs/flexica/src/*"]
     }
   }
 }

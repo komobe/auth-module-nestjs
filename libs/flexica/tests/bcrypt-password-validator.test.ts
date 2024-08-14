@@ -1,5 +1,5 @@
-import {BcryptPasswordValidator} from "@adapters/bcrypt-password-validator";
-import {PasswordValidatorInterface} from "@contracts/password-validator.interface";
+import { BcryptPasswordValidator } from "@adapters/bcrypt-password-validator";
+import { PasswordValidatorInterface } from "@contracts/password-validator.interface";
 import * as bcrypt from 'bcrypt';
 
 describe('validatePassword', () => {
