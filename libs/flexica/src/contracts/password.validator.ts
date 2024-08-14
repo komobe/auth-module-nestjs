@@ -1,4 +1,4 @@
-export interface PasswordValidatorInterface {
+export interface PasswordValidator {
 
     /**
      * Validates a plain text password against a hashed password.

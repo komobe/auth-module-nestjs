@@ -1,16 +1,22 @@
 import { AuthPayload } from "@contracts/auth-payload.interface";
 import { Authenticator } from '@contracts/authenticator.interface';
 import { AuthentificationError } from '@contracts/errors/authentification.error';
-import { PasswordValidatorInterface } from '@contracts/password-validator.interface';
-import { RETRIEVE_USER_PROVIDER } from "libs/flexica/src/configs/tokens";
+import { PasswordValidator } from '@contracts/password.validator';
+import {
+    AUTHENTICATOR_PROVIDER,
+    PASSWORD_VALIDATOR_PROVIDER,
+    RETRIEVE_USER_PROVIDER,
+} from 'libs/flexica/src/configs/tokens';
 import { RetrieveUserProvider } from 'libs/flexica/src/configs/types';
 import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class FlexicaService<T = any> {
     constructor(
+        @Inject(AUTHENTICATOR_PROVIDER)
         private readonly authenticator: Authenticator,
-        private readonly passwordValidator: PasswordValidatorInterface,
+        @Inject(PASSWORD_VALIDATOR_PROVIDER)
+        private readonly passwordValidator: PasswordValidator,
         @Inject(RETRIEVE_USER_PROVIDER)
         private readonly retrieveUserProvider: RetrieveUserProvider<T>
     ) {}

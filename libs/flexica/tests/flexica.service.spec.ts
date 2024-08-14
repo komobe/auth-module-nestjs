@@ -1,5 +1,5 @@
 import { AuthPayload } from "@contracts/auth-payload.interface";
-import { PasswordValidatorInterface } from "@contracts/password-validator.interface";
+import { PasswordValidator } from "@contracts/password.validator";
 import { FlexicaService } from 'libs/flexica/src/flexica.service';
 import { Authenticator } from '@contracts/authenticator.interface';
 import { RetrieveUserProvider } from 'libs/flexica/src/configs/types';
@@ -8,7 +8,7 @@ import { AuthentificationError } from '@contracts/errors/authentification.error'
 describe('FlexicaService', () => {
     let flexicaService: FlexicaService;
     let mockAuthenticator: Authenticator;
-    let mockPasswordValidator: PasswordValidatorInterface;
+    let mockPasswordValidator: PasswordValidator;
     let mockRetrieveUserProvider: RetrieveUserProvider<any>;
 
     beforeEach(() => {
