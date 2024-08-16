@@ -1,5 +1,5 @@
 {
-  "name": "flexica",
+  "name": "@komobe/flexica",
   "version": "0.0.1",
   "description": "A flexible and adaptable authentication library.",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/komobe/auth-module-nestjs"
   },
-  "author": "Moro KONE <komobe.dev@gmail.com>",
+  "author": "Moro KONE",
   "license": "MIT",
   "scripts": {
     "build": "tsc",

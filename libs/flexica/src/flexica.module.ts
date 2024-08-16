@@ -17,10 +17,7 @@ export class FlexicaModule {
 
         return {
             module: FlexicaModule,
-            providers: [
-                FlexicaService,
-                ...providers,
-            ],
+            providers: [FlexicaService, ...providers,],
             exports: [FlexicaService],
         };
     }
