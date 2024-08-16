@@ -16,6 +16,20 @@
     "lint": "eslint 'libs/flexica/src/**/*.{ts,tsx}' --fix",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\""
   },
+  "keywords": [
+    "nestjs",
+    "authentication",
+    "auth",
+    "jwt",
+    "bcrypt",
+    "typescript",
+    "security",
+    "password",
+    "user",
+    "flexica",
+    "module",
+    "auth-module"
+  ],
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
