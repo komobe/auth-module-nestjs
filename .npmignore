@@ -1,5 +1,3 @@
-src/
-!src/index.ts
-tests/
 node_modules/
-dist/
+libs/
+.idea/

@@ -1,15 +1,4 @@
 import {
-    AUTHENTICATOR_PROVIDER,
-    PASSWORD_VALIDATOR_PROVIDER,
-    RETRIEVE_USER_PROVIDER,
-} from '@flexica/configs/tokens';
-import {
-    createAuthenticator,
-    createPasswordValidator,
-    FlexicaModuleOptions,
-} from '@flexica/contracts';
-import { FlexicaService } from '@flexica/flexica.service';
-import {
     DynamicModule,
     FactoryProvider,
     InternalServerErrorException,
@@ -17,6 +6,13 @@ import {
     Provider,
     ValueProvider,
 } from '@nestjs/common';
+import {
+    AUTHENTICATOR_PROVIDER,
+    PASSWORD_VALIDATOR_PROVIDER,
+    RETRIEVE_USER_PROVIDER,
+} from './configs/tokens';
+import { createAuthenticator, createPasswordValidator, FlexicaModuleOptions } from './contracts';
+import { FlexicaService } from './flexica.service';
 
 @Module({})
 export class FlexicaModule {

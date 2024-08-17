@@ -1,5 +1,7 @@
-import { RetrieveUserProvider } from '@flexica/configs';
-import { AuthenticatorParameters, AuthenticatorType, PasswordType } from '@flexica/contracts';
+import { RetrieveUserProvider } from '../configs/types';
+import { AuthenticatorParameters, AuthenticatorType } from './authenticator.factory';
+import { PasswordType } from './password-validator.factory';
+
 
 export interface FlexicaModuleOptions<T = any> {
     authenticatorType: AuthenticatorType;

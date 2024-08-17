@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "types": ["jest"]
+    "types": ["jest"],
   },
   "include": ["libs/flexica/**/*.spec.ts", "libs/flexica/**/*"]
 }

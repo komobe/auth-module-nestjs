@@ -1,11 +1,11 @@
-import { FlexicaService } from '@flexica/flexica.service';
+import { FlexicaService } from '../src';
+import { RetrieveUserProvider } from '../src/configs';
 import {
     Authenticator,
     AuthentificationError,
     AuthPayload,
     PasswordValidator,
-} from '@flexica/contracts';
-import { RetrieveUserProvider } from '@flexica/configs';
+} from '../src/contracts';
 
 
 describe('FlexicaService', () => {
@@ -15,8 +15,8 @@ describe('FlexicaService', () => {
     let mockRetrieveUserProvider: RetrieveUserProvider<any>;
 
     beforeEach(() => {
-        mockAuthenticator = {authenticate: jest.fn()};
-        mockPasswordValidator = {validate: jest.fn()};
+        mockAuthenticator = { authenticate: jest.fn() };
+        mockPasswordValidator = { validate: jest.fn() };
         mockRetrieveUserProvider = jest.fn();
 
         flexicaService = new FlexicaService(mockAuthenticator, mockPasswordValidator, mockRetrieveUserProvider);
@@ -24,8 +24,8 @@ describe('FlexicaService', () => {
 
     it('should successfully verify a user with a valid Bearer token', async () => {
         const header = 'Bearer valid-token';
-        const decodedPayload: AuthPayload = {username: 'testuser', password: 'testpass'};
-        const user = {username: 'testuser', password: 'hashedpassword'};
+        const decodedPayload: AuthPayload = { username: 'testuser', password: 'testpass' };
+        const user = { username: 'testuser', password: 'hashedpassword' };
 
         (mockAuthenticator.authenticate as jest.Mock).mockResolvedValue(decodedPayload);
         (mockRetrieveUserProvider as jest.Mock).mockResolvedValue(user);
@@ -53,7 +53,7 @@ describe('FlexicaService', () => {
 
     it('should throw an error if the user is not found', async () => {
         const header = 'Bearer valid-token';
-        const decodedPayload: AuthPayload = {username: 'testuser', password: 'testpass'};
+        const decodedPayload: AuthPayload = { username: 'testuser', password: 'testpass' };
 
         (mockAuthenticator.authenticate as jest.Mock).mockResolvedValue(decodedPayload);
         (mockRetrieveUserProvider as jest.Mock).mockResolvedValue(null);

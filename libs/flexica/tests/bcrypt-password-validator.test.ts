@@ -1,6 +1,6 @@
-import { BcryptPasswordValidator } from '@flexica/adapters';
-import { PasswordValidator } from '@flexica/contracts';
 import * as bcrypt from 'bcrypt';
+import { BcryptPasswordValidator } from '../src/adapters';
+import { PasswordValidator } from '../src/contracts';
 
 describe('validatePassword', () => {
     const plainPassword = 'mySecurePassword';

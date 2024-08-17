@@ -1,5 +1,5 @@
-import { PasswordValidator } from '@flexica/contracts/password.validator';
 import * as bcrypt from 'bcrypt';
+import { PasswordValidator } from '../contracts';
 
 export class BcryptPasswordValidator implements PasswordValidator {
     async validate(plainPassword: string, passwordHash: string): Promise<boolean> {

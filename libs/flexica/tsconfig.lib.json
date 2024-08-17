@@ -4,6 +4,6 @@
     "declaration": true,
     "outDir": "../../dist/libs/flexica"
   },
-  "include": ["src/index.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "tests/**/*", "**/*spec.ts"]
 }

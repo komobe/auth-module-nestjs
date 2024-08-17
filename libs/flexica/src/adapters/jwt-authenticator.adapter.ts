@@ -1,6 +1,5 @@
-import { Authenticator } from '@flexica/contracts/authenticator.interface';
-import { AuthentificationError } from '@flexica/contracts/errors/authentification.error';
 import * as jwt from 'jsonwebtoken';
+import { Authenticator, AuthentificationError } from '../contracts';
 
 /**
  * JWT-based authenticator that verifies JWT tokens and returns the decoded payload.

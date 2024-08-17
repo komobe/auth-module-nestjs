@@ -1,12 +1,12 @@
-import { JwtAuthenticator } from '@flexica/adapters';
-import { Authenticator, AuthentificationError } from '@flexica/contracts';
 import * as jwt from 'jsonwebtoken';
 import { JwtPayload, verify } from 'jsonwebtoken';
+import { JwtAuthenticator } from '../src/adapters';
+import { Authenticator, AuthentificationError } from '../src/contracts';
 
 
 describe('JwtAuthenticator', () => {
     const jwtSecret = 'w2Y/t6RnKDc9NfN+yVzHqjE56KcXwKHS3HdKSt+Hf0I=';
-    const payload = {userId: 1, username: 'Kolo YEO'};
+    const payload = { userId: 1, username: 'Kolo YEO' };
     let authenticator: Authenticator<typeof payload>;
 
     beforeEach(() => {
@@ -25,7 +25,7 @@ describe('JwtAuthenticator', () => {
         expect(decodedWithoutExpiration).toHaveProperty('iat'); // Vérifie que le champ `iat` est présent
 
         // Test pour un token avec une durée d'expiration
-        const tokenWithExpiration = await (authenticator.generateToken as Function)(payload, {expiresIn: '1h'});
+        const tokenWithExpiration = await (authenticator.generateToken as Function)(payload, { expiresIn: '1h' });
         expect(typeof tokenWithExpiration).toBe('string');
 
         const decodedWithExpiration = verify(tokenWithExpiration, jwtSecret) as JwtPayload & typeof payload;
@@ -55,7 +55,7 @@ describe('JwtAuthenticator', () => {
     });
 
     it('should throw an error for an expired token', async () => {
-        const token = jwt.sign(payload, jwtSecret, {expiresIn: '1ms'});
+        const token = jwt.sign(payload, jwtSecret, { expiresIn: '1ms' });
         // wait a bit to ensure the token expires
         await new Promise(resolve => setTimeout(resolve, 10));
         await expect(authenticator.authenticate(token)).rejects.toThrow(AuthentificationError);

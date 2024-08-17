@@ -1,5 +1,5 @@
-import { JwtAuthenticator } from '@flexica/adapters';
-import { Authenticator } from '@flexica/contracts';
+import { JwtAuthenticator } from '../adapters';
+import { Authenticator } from './authenticator.interface';
 
 export type AuthenticatorType = 'JWT' | 'BASIC';
 
