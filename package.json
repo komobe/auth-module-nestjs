@@ -1,6 +1,6 @@
 {
   "name": "@komobe/flexica",
-  "version": "0.0.1-beta-04",
+  "version": "0.0.2",
   "description": "A flexible and adaptable authentication library.",
   "main": "dist/index.js",
   "author": "Moro KONE",

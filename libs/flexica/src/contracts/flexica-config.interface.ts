@@ -4,8 +4,8 @@ import { PasswordType } from './password-validator.factory';
 
 
 export interface FlexicaModuleOptions<T = any> {
-    authenticatorType: AuthenticatorType;
-    passwordType: PasswordType;
-    parameters: AuthenticatorParameters;
+    authenticatorType?: AuthenticatorType;
+    passwordType?: PasswordType;
+    parameters?: AuthenticatorParameters;
     retrieveUserProvider: RetrieveUserProvider<T>;
 }

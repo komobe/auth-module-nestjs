@@ -11,13 +11,20 @@ import {
     PASSWORD_VALIDATOR_PROVIDER,
     RETRIEVE_USER_PROVIDER,
 } from './configs/tokens';
-import { createAuthenticator, createPasswordValidator, FlexicaModuleOptions } from './contracts';
+import {
+    AuthenticatorType,
+    createAuthenticator,
+    createPasswordValidator,
+    FlexicaModuleOptions,
+    PasswordType,
+} from './contracts';
 import { FlexicaService } from './flexica.service';
 
 @Module({})
 export class FlexicaModule {
     static forRoot<T>(options: FlexicaModuleOptions<T>): DynamicModule {
         FlexicaModule.validateOptions(options);
+        FlexicaModule.setDefaultOptions(options);
         const providers = FlexicaModule.createProviders(options);
 
         return {
@@ -33,25 +40,17 @@ export class FlexicaModule {
                 'retrieveUserProvider must be provided in FlexicaModule options.',
             );
         }
-
-        if (!options.authenticatorType) {
-            throw new InternalServerErrorException('Authenticator type must be provided.');
-        }
-
-        if (!options.passwordType) {
-            throw new InternalServerErrorException('Password type must be provided.');
-        }
     }
 
     private static createProviders<T>(options: FlexicaModuleOptions<T>): Provider[] {
         const authenticatorProvider: FactoryProvider = {
             provide: AUTHENTICATOR_PROVIDER,
-            useFactory: () => createAuthenticator(options.authenticatorType, options.parameters),
+            useFactory: () => createAuthenticator(options.authenticatorType as AuthenticatorType, options.parameters),
         };
 
         const passwordValidatorProvider: FactoryProvider = {
             provide: PASSWORD_VALIDATOR_PROVIDER,
-            useFactory: () => createPasswordValidator(options.passwordType),
+            useFactory: () => createPasswordValidator(options.passwordType as PasswordType),
         };
 
         const retrieveUserProvider: ValueProvider = {
@@ -60,5 +59,15 @@ export class FlexicaModule {
         };
 
         return [authenticatorProvider, passwordValidatorProvider, retrieveUserProvider];
+    }
+
+    private static setDefaultOptions<T>(options: FlexicaModuleOptions<T>) {
+        if (!options.authenticatorType) {
+            options.authenticatorType = 'JWT';
+        }
+
+        if (!options.passwordType) {
+            options.passwordType = 'BCRYPT';
+        }
     }
 }
