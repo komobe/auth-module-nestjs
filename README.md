@@ -38,7 +38,6 @@ export const flexicaConfig: FlexicaModuleOptions = {
   passwordType: PasswordType.BCRYPT,         // Example password hashing type
   parameters: {                              // Custom parameters
     jwtSecret: 'jwtsecrettoken',
-    jwtExpirationTime: '3600s',
   },
   retrieveUserProvider: async (username: string) => {
     // Custom function to retrieve user data
