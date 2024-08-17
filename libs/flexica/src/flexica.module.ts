@@ -23,8 +23,8 @@ import { FlexicaService } from './flexica.service';
 @Module({})
 export class FlexicaModule {
     static forRoot<T>(options: FlexicaModuleOptions<T>): DynamicModule {
-        FlexicaModule.validateOptions(options);
         FlexicaModule.setDefaultOptions(options);
+        FlexicaModule.validateOptions(options);
         const providers = FlexicaModule.createProviders(options);
 
         return {
@@ -38,6 +38,12 @@ export class FlexicaModule {
         if (!options.retrieveUserProvider) {
             throw new InternalServerErrorException(
                 'retrieveUserProvider must be provided in FlexicaModule options.',
+            );
+        }
+
+        if (options.authenticatorType === 'JWT' && !options.parameters?.jwtSecret) {
+            throw new InternalServerErrorException(
+                'jwtSecret must be provided in FlexicaModule options when using JWT authenticator type.',
             );
         }
     }
