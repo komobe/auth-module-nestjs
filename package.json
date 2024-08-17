@@ -14,7 +14,7 @@
     "test": "jest",
     "prepublishOnly": "yarn build",
     "lint": "eslint 'libs/flexica/src/**/*.{ts,tsx}' --fix",
-    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\""
+    "format": "prettier --write 'libs/flexica/src/**/*.{ts,tsx}'"
   },
   "keywords": [
     "nestjs",

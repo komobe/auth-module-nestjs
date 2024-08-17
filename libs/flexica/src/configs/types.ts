@@ -1,3 +1,3 @@
-import { AuthPayload } from "@contracts/auth-payload.interface";
+import { AuthPayload } from '@flexica/contracts/auth-payload.interface';
 
 export type RetrieveUserProvider<T> = (payload: AuthPayload) => Promise<T>;

@@ -1,6 +1,5 @@
-import { JwtAuthenticator } from "@adapters/jwt-authenticator.adapter";
-import { Authenticator } from "@contracts/authenticator.interface";
-import { AuthentificationError } from "@contracts/errors/authentification.error";
+import { JwtAuthenticator } from '@flexica/adapters';
+import { Authenticator, AuthentificationError } from '@flexica/contracts';
 import * as jwt from 'jsonwebtoken';
 import { JwtPayload, verify } from 'jsonwebtoken';
 

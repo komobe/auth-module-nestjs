@@ -1,5 +1,4 @@
 export interface PasswordValidator {
-
     /**
      * Validates a plain text password against a hashed password.
      * @param plainPassword - The plain text password to validate.

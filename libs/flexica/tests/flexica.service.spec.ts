@@ -1,9 +1,12 @@
-import { AuthPayload } from "@contracts/auth-payload.interface";
-import { PasswordValidator } from "@contracts/password.validator";
-import { FlexicaService } from 'libs/flexica/src/flexica.service';
-import { Authenticator } from '@contracts/authenticator.interface';
-import { RetrieveUserProvider } from 'libs/flexica/src/configs/types';
-import { AuthentificationError } from '@contracts/errors/authentification.error';
+import { FlexicaService } from '@flexica/flexica.service';
+import {
+    Authenticator,
+    AuthentificationError,
+    AuthPayload,
+    PasswordValidator,
+} from '@flexica/contracts';
+import { RetrieveUserProvider } from '@flexica/configs';
+
 
 describe('FlexicaService', () => {
     let flexicaService: FlexicaService;

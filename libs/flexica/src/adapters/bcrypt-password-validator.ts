@@ -1,4 +1,4 @@
-import { PasswordValidator } from '@contracts/password.validator';
+import { PasswordValidator } from '@flexica/contracts/password.validator';
 import * as bcrypt from 'bcrypt';
 
 export class BcryptPasswordValidator implements PasswordValidator {

@@ -1,5 +1,5 @@
-import { BcryptPasswordValidator } from '@adapters/bcrypt-password-validator';
-import { PasswordValidator } from '@contracts/password.validator';
+import { BcryptPasswordValidator } from '@flexica/adapters';
+import { PasswordValidator } from '@flexica/contracts';
 
 export type PasswordType = 'BCRYPT';
 

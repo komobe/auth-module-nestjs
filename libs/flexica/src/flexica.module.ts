@@ -1,13 +1,22 @@
-import { createAuthenticator } from '@contracts/authenticator.factory';
-import { FlexicaModuleOptions } from '@contracts/flexica-config.interface';
-import { createPasswordValidator } from '@contracts/password-validator.factory';
-import { DynamicModule, FactoryProvider, InternalServerErrorException, Module, ValueProvider } from '@nestjs/common';
 import {
     AUTHENTICATOR_PROVIDER,
     PASSWORD_VALIDATOR_PROVIDER,
     RETRIEVE_USER_PROVIDER,
-} from 'libs/flexica/src/configs/tokens';
-import { FlexicaService } from './flexica.service';
+} from '@flexica/configs/tokens';
+import {
+    createAuthenticator,
+    createPasswordValidator,
+    FlexicaModuleOptions,
+} from '@flexica/contracts';
+import { FlexicaService } from '@flexica/flexica.service';
+import {
+    DynamicModule,
+    FactoryProvider,
+    InternalServerErrorException,
+    Module,
+    Provider,
+    ValueProvider,
+} from '@nestjs/common';
 
 @Module({})
 export class FlexicaModule {
@@ -17,14 +26,16 @@ export class FlexicaModule {
 
         return {
             module: FlexicaModule,
-            providers: [FlexicaService, ...providers,],
+            providers: [FlexicaService, ...providers],
             exports: [FlexicaService],
         };
     }
 
     private static validateOptions<T>(options: FlexicaModuleOptions<T>): void {
         if (!options.retrieveUserProvider) {
-            throw new InternalServerErrorException('retrieveUserProvider must be provided in FlexicaModule options.');
+            throw new InternalServerErrorException(
+                'retrieveUserProvider must be provided in FlexicaModule options.',
+            );
         }
 
         if (!options.authenticatorType) {
@@ -36,7 +47,7 @@ export class FlexicaModule {
         }
     }
 
-    private static createProviders<T>(options: FlexicaModuleOptions<T>): (ValueProvider | FactoryProvider)[] {
+    private static createProviders<T>(options: FlexicaModuleOptions<T>): Provider[] {
         const authenticatorProvider: FactoryProvider = {
             provide: AUTHENTICATOR_PROVIDER,
             useFactory: () => createAuthenticator(options.authenticatorType, options.parameters),

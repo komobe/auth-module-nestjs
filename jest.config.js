@@ -7,8 +7,6 @@ module.exports = {
     },
     testMatch: ['<rootDir>/libs/flexica/tests/**/*.ts'],
     moduleNameMapper: {
-        '^@adapters/(.*)$': '<rootDir>libs/flexica/src/adapters/$1',
-        '^@contracts/(.*)$': '<rootDir>libs/flexica/src/contracts/$1',
-        '^libs/flexica/src/(.*)$': '<rootDir>/libs/flexica/src/$1'
+        '^@flexica/(.*)$': '<rootDir>/libs/flexica/src/$1'
     },
 };

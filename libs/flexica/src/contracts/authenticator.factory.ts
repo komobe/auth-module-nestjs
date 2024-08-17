@@ -1,5 +1,5 @@
-import { JwtAuthenticator } from '@adapters/jwt-authenticator.adapter';
-import { Authenticator } from '@contracts/authenticator.interface';
+import { JwtAuthenticator } from '@flexica/adapters';
+import { Authenticator } from '@flexica/contracts';
 
 export type AuthenticatorType = 'JWT' | 'BASIC';
 
@@ -7,8 +7,10 @@ export interface AuthenticatorParameters {
     jwtSecret?: string;
 }
 
-
-export function createAuthenticator(type: AuthenticatorType, parameters: AuthenticatorParameters = {}): Authenticator {
+export function createAuthenticator(
+    type: AuthenticatorType,
+    parameters: AuthenticatorParameters = {},
+): Authenticator {
     switch (type) {
         case 'JWT':
             return new JwtAuthenticator(parameters.jwtSecret as string);

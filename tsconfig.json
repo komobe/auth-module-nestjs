@@ -9,11 +9,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": "./libs/flexica/src",
     "paths": {
-      "@contracts/*": ["libs/flexica/src/contracts/*"],
-      "@adapters/*": ["libs/flexica/src/adapters/*"],
-      "libs/flexica/src/*": ["libs/flexica/src/*"]
+      "@flexica/*": ["*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist", "tests/**/*", "**/*spec.ts"]
 }
