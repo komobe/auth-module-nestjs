@@ -1,5 +1,5 @@
 import * as jwt from 'jsonwebtoken';
-import { Authenticator, AuthentificationError } from '../contracts';
+import { Authenticator, authentificationError } from '../contracts';
 
 /**
  * JWT-based authenticator that verifies JWT tokens and returns the decoded payload.
@@ -24,8 +24,8 @@ export class JwtAuthenticator<T = any> implements Authenticator<T> {
     async authenticate(token: string): Promise<T> {
         try {
             return jwt.verify(token, this.jwtSecret) as T;
-        } catch (error) {
-            throw new AuthentificationError('Invalid token');
+        } catch (error: any) {
+            authentificationError(error.message || 'Invalid token');
         }
     }
 

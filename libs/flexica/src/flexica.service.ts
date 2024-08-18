@@ -5,7 +5,7 @@ import {
     PASSWORD_VALIDATOR_PROVIDER,
     RETRIEVE_USER_PROVIDER,
 } from './configs/tokens';
-import { Authenticator, AuthentificationError, AuthPayload, PasswordValidator } from './contracts';
+import { Authenticator, authentificationError, AuthPayload, PasswordValidator } from './contracts';
 
 @Injectable()
 export class FlexicaService<T = any> {
@@ -27,7 +27,7 @@ export class FlexicaService<T = any> {
         );
 
         if (!isValid) {
-            throw new AuthentificationError('Invalid credentials');
+            authentificationError('Invalid credentials');
         }
 
         return await (this.authenticator.generateToken as Function)({
@@ -36,27 +36,19 @@ export class FlexicaService<T = any> {
     }
 
     async verifyUser(header: string): Promise<T> {
-        try {
-            const [scheme, token] = header.split(' ');
+        const [scheme, token] = header.split(' ');
 
-            if (scheme !== 'Bearer') {
-                throw new AuthentificationError('Unsupported authentication scheme');
-            }
-
-            const decoded = await this.authenticator.authenticate(token);
-
-            const user = await this.retrieveUserProvider(decoded as AuthPayload);
-
-            if (!user) {
-                throw new AuthentificationError('User not found');
-            }
-
-            return user;
-        } catch (error) {
-            if (!(error instanceof AuthentificationError)) {
-                throw new AuthentificationError('Invalid token');
-            }
-            throw error;
+        if (scheme !== 'Bearer') {
+            authentificationError('Unsupported authentication scheme');
         }
+
+        const decoded = await this.authenticator.authenticate(token);
+        const user = await this.retrieveUserProvider(decoded as AuthPayload);
+
+        if (!user) {
+            authentificationError('User not found');
+        }
+
+        return user;
     }
 }

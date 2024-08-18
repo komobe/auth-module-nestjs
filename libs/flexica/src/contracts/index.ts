@@ -1,5 +1,5 @@
 export { FlexicaModuleOptions } from './flexica-config.interface';
-export { AuthentificationError } from './errors/authentification.error';
+export * from './errors/authentification.error';
 export { AuthPayload } from './auth-payload.interface';
 export { Authenticator } from './authenticator.interface';
 export {

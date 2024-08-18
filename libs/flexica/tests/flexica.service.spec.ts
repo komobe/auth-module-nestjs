@@ -1,4 +1,4 @@
-import { FlexicaService } from '../src';
+import { authentificationError, FlexicaService } from '../src';
 import { RetrieveUserProvider } from '../src/configs';
 import {
     Authenticator,
@@ -46,7 +46,7 @@ describe('FlexicaService', () => {
     it('should throw an error for invalid token', async () => {
         const header = 'Bearer invalid-token';
 
-        (mockAuthenticator.authenticate as jest.Mock).mockRejectedValue(new Error('Invalid token'));
+        (mockAuthenticator.authenticate as jest.Mock).mockRejectedValue(() => authentificationError('Invalid token'));
 
         await expect(flexicaService.verifyUser(header)).rejects.toThrow(AuthentificationError);
     });
